@@ -25,3 +25,7 @@ Route::resources([
 Route::resources([
     'movies' => MovieController::class,
 ]);
+
+Route::resources([
+    'actors' => ActorController::class,
+]);

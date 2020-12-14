@@ -33,7 +33,7 @@ class MovieController extends Controller
      * POST /api/movies
      *
      * @param MovieRequest $request
-     * @return \App\Http\Resources\Genre
+     * @return \App\Http\Resources\Movie
      */
     public function store(MovieRequest $request)
     {
@@ -57,10 +57,11 @@ class MovieController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * PUT /api/movies/{id}
      *
      * @param Movie $movie
      * @param MovieRequest $request
-     * @return \App\Http\Resources\Genre
+     * @return \App\Http\Resources\Movie
      */
     public function update(Movie $movie, MovieRequest $request)
     {
@@ -72,6 +73,7 @@ class MovieController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * DELETE /api/movies/{id}
      *
      * @param Movie $movie
      * @return \Illuminate\Http\Response
