@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Traits\PrimaryAsUuid;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Actor;
 
 class Movie extends Model
 {
@@ -16,4 +17,12 @@ class Movie extends Model
     protected $keyType = 'string';
 
     protected $fillable = ['name', 'year', 'synopsis', 'runtime', 'released_at', 'cost'];
+
+
+    public function actors()
+    {
+        return $this->belongsToMany(Actor::class);
+    }
+
+
 }
