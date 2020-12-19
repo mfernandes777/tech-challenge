@@ -7,6 +7,7 @@ use App\Http\Requests\ActorRequest;
 use App\Models\Actor;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\MovieCollection;
 
 class ActorController extends Controller
 {
@@ -84,4 +85,30 @@ class ActorController extends Controller
 
         return response()->noContent();
     }
+
+    /**
+     * Get all the movies where the actor has a role
+     * GET actors/{actor}/movies
+     *
+     * @param Actor $actor
+     * @return void
+     */
+    public function movies(Actor $actor)
+    {
+        return new MovieCollection($actor->movies()->paginate());
+    }
+
+
+    /**
+     * Get all the genres of an actor
+     * GET actors/{actor}/genres
+     *
+     * @param Actor $actor
+     * @return void
+     */
+    public function genres(Actor $actor)
+    {
+        return $actor->genres();
+    }
+
 }

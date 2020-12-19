@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ActorMovieController;
+use App\Http\Controllers\ActorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +32,6 @@ Route::resources([
     'actors' => ActorController::class,
 ]);
 
-Route::get('actors/{actor}/movies', [ActorMovieController::class, 'show']);
+Route::get('actors/{actor}/movies', [ActorController::class, 'movies']);
+
+Route::get('actors/{actor}/genres', [ActorController::class, 'genres']);
